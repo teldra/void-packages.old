@@ -1,13 +1,13 @@
 # Template file for 'cura'
 pkgname=cura
 version=2.7.0
-revision=1
+revision=2
 python_version=3
 build_style=cmake
 wrksrc="Cura-${version}"
 configure_args="-DCURA_VERSION:STRING=${version}"
 makedepends="libArcus-devel libArcus-python3 python3 Uranium"
-depends="Uranium python3-pyserial cura-engine cura-fdm-materials python3-zeroconf"
+depends="Uranium python3-pyserial cura-engine cura-fdm-materials python3-zeroconf qt5-quickcontrols"
 short_desc="3D printer / slicing GUI"
 maintainer="Karl Nilsson <karl.robert.nilsson@gmail.com>"
 license="AGPL-3"
