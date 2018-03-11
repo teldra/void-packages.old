@@ -1,0 +1,22 @@
+# Template file for 'hashboot'
+pkgname=hashboot
+version=0.9.4
+revision=9
+build_style="fetch"
+depends="base-system"
+short_desc="Check integrity of files in /boot"
+maintainer="teldra <teldra@rotce.de>"
+license="Hugware"
+homepage="https://github.com/tastytea/hashboot"
+distfiles="${homepage}/archive/${version}.tar.gz"
+checksum="51c96e6a1e52ae4f98fe859ac3945df1b743b5942d8ebcc64382412c60fdfdca"
+
+do_install() {
+	tar xfv ${version}.tar.gz
+	cd ${pkgname}-${version}
+	vinstall kernel-hook 755 /etc/kernel.d/post-install 99-hashboot
+	vinstall kernel-hook 755 /etc/kernel.d/post-remove 99-hashboot
+	vbin hashboot
+	vlicense LICENSE Hugware
+}
+
