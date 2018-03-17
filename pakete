@@ -1,3 +1,3 @@
 #PAKETE=( xss-lock hashboot radicale x2vnc leocad leocad-data kernel )
-PAKETE=( xss-lock hashboot x2vnc leocad leocad-data radicale kernel )
+PAKETE=( xss-lock hashboot x2vnc leocad leocad-data radicale kernel qwt )
 
