@@ -1,0 +1,83 @@
+# Template file for 'sonic-pi'
+pkgname=sonic-pi
+version=3.1.0
+revision=1
+wrksrc="${pkgname}-${version}/app/gui/qt"
+#create_wrksrc=yes
+#only_for_archs="i686 x86_64"
+build_style=qmake
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends="erlang cmake make qt5-tools-devel sed"
+makedepends="ruby-devel pkg-config libffi-devel aubio-devel qwt qwt-devel boost-devel qscintilla-qt5-devel libressl-devel libcurl-devel libssh2-devel"
+depends="lua ruby qscintilla-qt5 jack supercollider qwt boost erlang aubio libffi http-parser sc3-plugins"
+noshlibprovides=yes
+short_desc="A music-centric programming environment, originally built for the raspberry pi"
+maintainer="teldra <teldra@rotce.de>"
+license="GPL-3"
+homepage="http://sonic-pi.net/"
+distfiles="https://github.com/samaaron/${pkgname}/archive/v${version}.tar.gz"
+checksum=08de9d4ed3c81bbe69061d50c79c6bed48a8d3212e11fec6c3ef2197423f466b
+
+pre_configure() {
+	sed -i 's/lqt5scintilla2/lqscintilla2_qt5/g' "SonicPi.pro"
+	#rm -fr app/server/native
+
+	../../server/ruby/bin/compile-extensions.rb
+	../../server/ruby/bin/i18n-tool.rb -t
+	cp -f ruby_help.tmpl ruby_help.h
+	../../server/ruby/bin/qt-doc.rb -o ruby_help.h
+	lrelease SonicPi.pro
+	cd ../../server/erlang
+	erlc osc.erl pi_server.erl
+}
+
+do_configure() {
+	local qmake
+	if [ -x "/usr/lib/qt5/bin/qmake" ]; then
+		# Qt5 qmake
+		qmake="/usr/lib/qt5/bin/qmake"
+	fi
+	if [ -x "/usr/lib/qt/bin/qmake" ]; then
+		# Qt4 qmake
+		qmake="/usr/lib/qt/bin/qmake"
+	fi
+	if [ -z "${qmake}" ]; then
+		msg_error "${pkgver}: Could not find qmake - missing in hostdepends?\n"
+	fi
+	${qmake} ${configure_args} \
+		QMAKE_CC=$CC QMAKE_CXX=$CXX QMAKE_LINK=$CXX \
+		QMAKE_CFLAGS="${CFLAGS}" \
+		QMAKE_CXXFLAGS="${CXXFLAGS}" \
+		QMAKE_LFLAGS="${LDFLAGS}" SonicPi.pro
+}
+
+do_build() {
+	: ${make_cmd:=make}
+
+	${make_cmd} ${makejobs} ${make_build_args} ${make_build_target} \
+		CC="$CC" CXX="$CXX" LINK="$CXX"
+
+}
+
+do_install() {
+	cd ${wrksrc}
+	vmkdir opt/${pkgname}/app/gui/qt/
+	vcopy book opt/${pkgname}/app/gui/qt/
+	vcopy fonts opt/${pkgname}/app/gui/qt/
+	vcopy help opt/${pkgname}/app/gui/qt/
+	vcopy html opt/${pkgname}/app/gui/qt/
+	vcopy images opt/${pkgname}/app/gui/qt/
+	vcopy image_source opt/${pkgname}/app/gui/qt/
+	vcopy info opt/${pkgname}/app/gui/qt/
+	vcopy lang opt/${pkgname}/app/gui/qt/
+	vcopy theme opt/${pkgname}/app/gui/qt/
+	vcopy sonic-pi opt/${pkgname}/app/gui/qt/
+	vcopy ../../../etc opt/${pkgname}
+	vcopy ../../../bin opt/${pkgname}
+	vcopy ../../server opt/${pkgname}/app
+	#vbin app/gui/qt/sonic-pi
+	vbin ${FILESDIR}/sonic-pi
+}
