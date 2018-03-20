@@ -1,1 +1,1 @@
-PAKETE=( xss-lock hashboot x2vnc leocad leocad-data radicale sonic-pi kernel )
+PAKETE=( xss-lock hashboot x2vnc higan hashboot leocad leocad-data radicale sonic-pi kernel )
