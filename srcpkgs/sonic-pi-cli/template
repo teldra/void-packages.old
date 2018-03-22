@@ -1,0 +1,23 @@
+# Template file for 'sonic-pi-cli'
+pkgname=sonic-pi-cli
+version=0.1.1
+revision=9
+hostmakedepends="ruby"
+makedepends="ruby-devel zlib-devel"
+depends="ruby-osc-ruby"
+build_style=fetch
+short_desc="A simple command line interface for Sonic Pi"
+maintainer="teldra <teldra@rotce.de>"
+license="GPL-3"
+homepage="http://rubygems.org/gems/sonic-pi-cli"
+distfiles="https://rubygems.org/downloads/${pkgname}-${version}.gem"
+checksum=75f5be932a5dc3a957c9b31a3198d1c1bf6da9b915b032326d45ec6f82c354ac
+
+
+
+do_install() {
+	local _gemdir="$(ruby -e'puts Gem.default_dir')"
+	cd ${wrksrc}
+
+	GEM_PATH=$DESTDIR"${_gemdir}" GEM_HOME="$GEM_PATH" gem install --no-rdoc --no-ri --ignore-dependencies -n "$DESTDIR/usr/bin" $pkgname-$version.gem
+}
