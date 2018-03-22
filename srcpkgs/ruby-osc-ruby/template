@@ -1,0 +1,21 @@
+# Template file for 'ruby-osc-ruby'
+_gemname=osc-ruby
+pkgname=ruby-${_gemname}
+version=1.1.1
+revision=11
+hostmakedepends="ruby"
+makedepends="ruby-devel"
+short_desc="A  ruby client for the OSC protocol"
+maintainer="teldra <teldra@rotce.de>"
+license="GPL-3"
+build_style=fetch
+homepage="http://github.com/aberant/osc-ruby"
+distfiles="https://rubygems.org/downloads/${_gemname}-${version}.gem"
+checksum=57d81e095a31509f29e7e87e97b6684d258715d935cb550d5e7a2a019e644fed
+
+do_install() {
+	local _gemdir="$(ruby -e'puts Gem.default_dir')"
+	cd ${wrksrc}
+
+	GEM_PATH=$DESTDIR"${_gemdir}" GEM_HOME="$GEM_PATH" gem install --no-rdoc --no-ri --ignore-dependencies -n "$DESTDIR/usr/bin" ${_gemname}-$version.gem
+}
