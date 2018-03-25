@@ -1,1 +1,1 @@
-PAKETE=( hashboot higan hashboot radicale sonic-pi ruby-osc-ruby sonic-pi-cli kernel )
+PAKETE=( hashboot higan hashboot radicale ruby-osc-ruby sonic-pi sonic-pi-cli kernel )
