@@ -1,1 +1,1 @@
-PAKETE=( hashboot radicale qwt ruby-osc-ruby sonic-pi sonic-pi-cli kernel )
+PAKETE=( hashboot radicale ruby-osc-ruby sonic-pi sonic-pi-cli kernel )
