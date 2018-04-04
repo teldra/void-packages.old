@@ -1,1 +1,1 @@
-PAKETE=( hashboot networkmanager-dmenu buku_run pass-git-helper volctl x2vnc xss-lock radicale ruby-osc-ruby sonic-pi kernel  )
+PAKETE=( hashboot autorunner networkmanager-dmenu buku_run pass-git-helper volctl x2vnc xss-lock radicale ruby-osc-ruby sonic-pi kernel  )
