@@ -1,0 +1,22 @@
+# Template file for 'autorunner'
+pkgname=autorunner
+version=0.1
+revision=1
+wrksrc="autorunner-master"
+conf_files="/etc/autorunner.config"
+hostmakedepends="unzip"
+depends="base-system"
+short_desc="Autostart helper for your required desktop"
+maintainer="teldra <teldra@rotce.de>"
+license="MIT"
+homepage="https://github.com/cytopia/${pkgname}"
+distfiles="https://github.com/cytopia/${pkgname}/archive/master.zip"
+checksum=cd9b6c1c7461be0e9762e7d9fdbe7846520b7f886ee9e178a97c5c7e1dcf3b58
+
+do_install() {
+	vbin autorunner
+	vlicense LICENSE.md LICENSE
+	vsconf config
+	vconf config autorunner.config
+	vdoc README.md README
+}
