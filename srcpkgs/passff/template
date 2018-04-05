@@ -1,0 +1,39 @@
+# Template file for 'passff'
+pkgname=passff
+version=1.1
+revision=1
+_file_id=904741
+build_wrksrc=src
+build_style=gnu-makefile
+hostmakedepends="zip jq"
+depends="python3"
+short_desc="Pass passwordmanager addon for Firefox"
+maintainer="teldra <teldra@rotce.de>"
+license="GPL-2"
+homepage="https://github.com/${pkgname}"
+distfiles="${homepage}/${pkgname}/archive/${version}.tar.gz"
+checksum=31beb09c3899555540f72226e05e5d0063e8b7a4c9a772d4aaacb0060482bf18
+
+_native_messaging=(
+	usr/lib/chromium/native-messaging-hosts
+	usr/lib/mozilla/native-messaging-hosts
+)
+
+_bindir="usr/lib/passff"
+
+pre_build() {
+	sed -i -e "s-PLACEHOLDER-/$_bindir/passff.py-" "host/passff.json"
+}
+
+do_install() {
+	local ext_id="$(jq -r '.applications.gecko.id' manifest.json)"
+	vmkdir $_bindir
+	vinstall host/passff.py 755 $_bindir
+	vmkdir usr/lib/firefox/browser/extensions
+	vinstall ../bin/1.0testing/${pkgname}.xpi 644 usr/lib/firefox/browser/extensions/ "${ext_id}.xpi"
+
+	for d in "${_native_messaging[@]}"; do
+		vmkdir $(dirname $d)
+		vinstall host/passff.json 644 $d
+	done
+}
