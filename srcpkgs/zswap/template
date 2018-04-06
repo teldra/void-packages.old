@@ -1,0 +1,16 @@
+# Template file for 'zswap'
+pkgname=zswap
+version=1.1
+revision=1
+build_style=fetch
+short_desc="Install my own zram"
+maintainer="teldra <teldra@rotce.de>"
+license="GPL-3"
+homepage="https://rotce.de"
+conf_files="/etc/runit/core-services/80-zswap.sh"
+
+do_install() {
+	vmkdir etc/runit/core-services/
+	vinstall ${FILESDIR}/80-zswap.sh 655 etc/runit/core-services/
+}
+
