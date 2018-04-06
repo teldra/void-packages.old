@@ -1,0 +1,22 @@
+# Template file for 'fizsh'
+pkgname=fizsh
+version=1.0.9
+revision=1
+#wrksrc=
+#create_wrksrc=yes
+#only_for_archs="i686 x86_64"
+build_style=gnu-configure
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends=""
+makedepends=""
+depends="zsh"
+short_desc="Friendly Interactive ZSHell"
+maintainer="teldra <teldra@rotce.de>"
+license="GPL-3"
+homepage="https://github.com/zsh-users/${pkgname}"
+distfiles="${homepage}/archive/${version}.tar.gz"
+checksum=dbbbe03101f82e62f1dfe1f8af7cde23bc043833679bc74601a0a3d58a117b07
