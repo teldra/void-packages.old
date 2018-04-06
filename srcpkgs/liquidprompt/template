@@ -1,0 +1,30 @@
+# Template file for 'liquidprompt'
+pkgname=liquidprompt
+version=1.11
+revision=1
+wrksrc=${pkgname}-v_${version}
+#create_wrksrc=yes
+#only_for_archs="i686 x86_64"
+#build_style=gnu-configure
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends=""
+makedepends=""
+depends="zsh"
+short_desc="A full-featured & carefully designed adaptive prompt for Bash & Zsh"
+maintainer="teldra <teldra@rotce.de>"
+license="GPL-3"
+homepage="https://github.com/nojhan/${pkgname}"
+distfiles="${homepage}/archive/v_${version}.tar.gz"
+checksum=669dde6b8274a57b3e39dc41539d157a86252e40e39bcc4c3102b5a81bd8f2f5
+
+do_install() {
+	vmkdir usr/share/zsh/plugins/${pkgname}
+	vinstall ${pkgname} 644  usr/share/zsh/plugins/${pkgname}
+	vinstall ${pkgname}.plugin.zsh 644  usr/share/zsh/plugins/${pkgname}
+	vsconf liquidpromptrc-dist
+	vsconf example.bashrc
+}
