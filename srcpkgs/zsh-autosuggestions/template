@@ -1,0 +1,20 @@
+# Template file for 'zsh-autosuggestions'
+pkgname=zsh-autosuggestions
+version=0.4.2
+revision=1
+build_style=gnu-makefile
+noarch=yes
+depends="zsh"
+short_desc="Fish shell like autosuggestions for Zsh"
+maintainer="teldra <teldra@rotce.de>"
+license="MIT"
+homepage="https://github.com/zsh-users/${pkgname}"
+distfiles="${homepage}/archive/v${version}.tar.gz"
+checksum=d2316f998338ee7a83ed1741a82e59f3c83757541291ca4eb0025625c1dae9dd
+#l
+do_install() {
+	vmkdir usr/share/zsh/plugins/${pkgname}
+	vinstall zsh-autosuggestions.plugin.zsh 644 usr/share/zsh/plugins/${pkgname}
+	vinstall zsh-autosuggestions.zsh 644 usr/share/zsh/plugins/${pkgname}
+	vlicense LICENSE
+}
