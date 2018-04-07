@@ -1,0 +1,22 @@
+# Template file for 'python-semanticversion'
+pkgname=python-semanticversion
+version=2.6.0
+revision=1
+#wrksrc=
+#create_wrksrc=yes
+#only_for_archs="i686 x86_64"
+build_style=python-module
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends="python-devel python-setuptools"
+makedepends=""
+depends=""
+short_desc="A library implementing the 'SemVer' scheme"
+maintainer="teldra <teldra@rotce.de>"
+license="GPL-3"
+homepage="https://github.com/rbarrois/python-semanticversion"
+distfiles="${homepage}/archive/v${version}.tar.gz"
+checksum=110d9c75dc9670a188ab820503c6b40ea4ab3f1450a0aee5a90a24fd60aef358
