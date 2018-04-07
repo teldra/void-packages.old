@@ -1,0 +1,22 @@
+# Template file for 'python-pkginfo'
+pkgname=python-pkginfo
+version=1.4.2
+revision=1
+wrksrc=pkginfo-1.4.2
+#create_wrksrc=yes
+#only_for_archs="i686 x86_64"
+build_style=python-module
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends="python-devel python-setuptools"
+makedepends=""
+depends=""
+short_desc="Query metadatdata from sdists / bdists / installed packages"
+maintainer="teldra <teldra@rotce.de>"
+license="PSF"
+homepage="https://pypi.python.org/pypi/pkginfo"
+distfiles="https://pypi.io/packages/source/p/pkginfo/pkginfo-${version}.tar.gz"
+checksum=5878d542a4b3f237e359926384f1dde4e099c9f5525d236b1840cf704fa8d474
