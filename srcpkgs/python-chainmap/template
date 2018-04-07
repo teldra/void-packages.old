@@ -1,0 +1,22 @@
+# Template file for 'python-chainmap'
+pkgname=python-chainmap
+version=1.0.2
+revision=1
+wrksrc=jeunice-chainmap-c8b7a5b9e751/
+#create_wrksrc=yes
+#only_for_archs="i686 x86_64"
+build_style=python-module
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends="python-devel python-setuptools"
+makedepends=""
+depends=""
+short_desc="Backport/clone of ChainMap for py26"
+maintainer="teldra <teldra@rotce.de>"
+license="PSF"
+homepage="https://bitbucket.org/jeunice/chainmap"
+distfiles="${homepage}/get/${version}.tar.gz"
+checksum=9c126c1cd83d0432787b15a44d5bb168661427c6a96b6e807ad4a685ac84b3b3
