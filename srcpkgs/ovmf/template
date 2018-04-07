@@ -1,0 +1,42 @@
+# Template file for 'ovmf'
+pkgname=ovmf
+version=UDK2018
+revision=1
+wrksrc=edk2-v${version}
+#create_wrksrc=yes
+#only_for_archs="i686 x86_64"
+#build_style=gnu-configure
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends="git python acpica-utils nasm subversion perl-LWP unzip"
+makedepends="make libuuid-devel"
+depends=""
+short_desc="Tianocore UEFI firmware for qemu"
+maintainer="teldra <teldra@rotce.de>"
+license="GPL-3"
+homepage="http://sourceforge.net/apps/mediawiki/tianocore/index.php?title=EDK2"
+distfiles="https://github.com/tianocore/edk2/archive/v${version}.tar.gz"
+checksum=a37aa6dc7a4326b562ce03e225afd96a0cd1dc847d9aeddfd867ce6b2e7cc7bc
+_toolchain_opt=GCC5
+
+pre_configure() {
+	mkdir -p bin
+	ln -sf /usr/bin/python bin/python
+}
+
+do_build() {
+	export PATH="${wrksrc}/bin:$PATH"
+	make -C BaseTools
+	export EDK_TOOLS_PATH=${wrksrc}/BaseTools
+	. edksetup.sh BaseTools
+	./BaseTools/BinWrappers/PosixLike/build -t $_toolchain_opt -a X64 -p OvmfPkg/OvmfPkgX64.dsc -n $(nproc) -b RELEASE -D FD_SIZE_2MB
+}
+
+do_install() {
+	vinstall Build/OvmfX64/RELEASE_${_toolchain_opt}/FV/OVMF_CODE.fd 644 usr/share/ovmf/x64
+	vinstall Build/OvmfX64/RELEASE_${_toolchain_opt}/FV/OVMF_VARS.fd 644 usr/share/ovmf/x64
+	vlicense OvmfPkg/License.txt
+}
