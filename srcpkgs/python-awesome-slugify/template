@@ -1,0 +1,22 @@
+# Template file for 'python-awesome-slugify'
+pkgname=python-awesome-slugify
+version=1.4
+revision=1
+wrksrc=awesome-slugify-1.4
+#create_wrksrc=yes
+#only_for_archs="i686 x86_64"
+build_style=python-module
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends="python-devel python-setuptools"
+makedepends=""
+depends="python-Unidecode python-regex"
+short_desc="Python flexible slugify function"
+maintainer="teldra <teldra@rotce.de>"
+license="GPL-3"
+homepage="https://github.com/dimka665/awesome-slugify"
+distfiles="${homepage}/archive/v${version}.tar.gz"
+checksum=bd741cfeec942f62a79acf8ce9c3543da4294571a1d2aab59cc39c52de97bb95
