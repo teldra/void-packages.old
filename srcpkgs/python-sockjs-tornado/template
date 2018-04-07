@@ -1,0 +1,22 @@
+# Template file for 'python-sockjs-tornado'
+pkgname=python-sockjs-tornado
+version=1.0.3
+revision=1
+wrksrc=sockjs-tornado-1.0.3
+#create_wrksrc=yes
+#only_for_archs="i686 x86_64"
+build_style=python-module
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends="python-devel python-setuptools"
+makedepends=""
+depends=""
+short_desc="SockJS python server implementation on top of Tornado framework"
+maintainer="teldra <teldra@rotce.de>"
+license="MIT"
+homepage="http://github.com/mrjoes/sockjs-tornado"
+distfiles="https://files.pythonhosted.org/packages/source/s/sockjs-tornado/sockjs-tornado-${version}.tar.gz"
+checksum=6d726e61bd1d884bd1c1788727fce1b9f24fd69062dda0daf61a476b01718e99
