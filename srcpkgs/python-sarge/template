@@ -1,0 +1,22 @@
+# Template file for 'python-sarge'
+pkgname=python-sarge
+version=0.1.4
+revision=1
+wrksrc=sarge-0.1.4
+#create_wrksrc=yes
+#only_for_archs="i686 x86_64"
+build_style=python-module
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends="python-devel python-setuptools"
+makedepends=""
+depends=""
+short_desc="Provides a wrapper for subprocess which provides command pipeline functionality"
+maintainer="teldra <teldra@rotce.de>"
+license="GPL-3"
+homepage="https://bitbucket.org/vinay.sajip/sarge"
+distfiles="https://files.pythonhosted.org/packages/source/s/sarge/sarge-${version}.tar.gz"
+checksum=59f93216723ddd9062d17cbbb90ed9e69267b84825cf0bde0b7f8d934c424823
