@@ -1,0 +1,25 @@
+# Template file for 'OctoPrint'
+pkgname=OctoPrint
+version=1.3.6
+revision=1
+#wrksrc=
+#create_wrksrc=yes
+#only_for_archs="i686 x86_64"
+build_style=python-module
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends="python-setuptools"
+makedepends=""
+depends="python-blinker python-click python-dateutil python-feedparser python-future python-futures python-monotonic python-netaddr \
+python-netifaces python-psutil python-pyserial python-requests python-rsa python-websocket-client python-scandir python-tornado python-watchdog \
+python-wrapt python-yaml python-Flask python-Flask-Assets python-Flask-Babel python-Flask-Login python-Markdown \
+python-awesome-slugify python-chainmap python-Flask-principal python-pkginfo python-pylru python-sarge python-semanticversion python-sockjs-tornado"
+short_desc="Responsive web interface for controlling a 3D printer (RepRap, Ultimaker, ...)"
+maintainer="teldra <teldra@rotce.de>"
+license="AGPL-3"
+homepage="http://octoprint.org"
+distfiles="https://github.com/foosel/${pkgname}/archive/${version}.tar.gz"
+checksum=389b97faf997adec29e619a15f6cae489131e11c6fb214a9041a82ae60bd824d
