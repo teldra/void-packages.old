@@ -1,0 +1,22 @@
+# Template file for 'python-Flask-principal'
+pkgname=python-Flask-principal
+version=0.4.0
+revision=1
+wrksrc=Flask-Principal-0.4.0/
+#create_wrksrc=yes
+#only_for_archs="i686 x86_64"
+build_style=python-module
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends="python-devel python-setuptools"
+makedepends=""
+depends=""
+short_desc="Identity management for flask"
+maintainer="teldra <teldra@rotce.de>"
+license="MIT"
+homepage="https://pypi.python.org/pypi/Flask-Principal"
+distfiles="${PYPI_SITE}/F/Flask-Principal/Flask-Principal-${version}.tar.gz"
+checksum=f5d6134b5caebfdbb86f32d56d18ee44b080876a27269560a96ea35f75c99453
