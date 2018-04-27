@@ -1,7 +1,7 @@
 # Template file for 'cargo'
 pkgname=cargo
 version=0.26.0
-revision=1
+revision=2
 hostmakedepends="rust python curl cmake pkg-config"
 makedepends="libcurl-devel libgit2-devel"
 depends="rust"
@@ -16,9 +16,9 @@ nocross=yes
 case "$XBPS_MACHINE" in
 x86_64-musl)
 	distfiles+="
-	 https://repo.voidlinux.eu/distfiles/cargo-0.25.0-x86_64-unknown-linux-musl.tar.gz"
+	 https://repo.voidlinux.eu/distfiles/cargo-0.26.0-x86_64-unknown-linux-musl.tar.gz"
 	checksum+="
-	 b909608608b36cd75f63f7aab1efb31f3eb50a1f0744151474ebc9559f721bdd"
+	 190a3b61b8c8c56ed0eaa825adc13498c29efa5834046a86e9e6209a17083835"
 	;;
 x86_64)
 	distfiles+="
