@@ -1,4 +1,4 @@
-# Template file for 'sonic-pi'
+# Template file for 'sonic-pi' 
 pkgname=sonic-pi
 version=3.1.0
 revision=1
