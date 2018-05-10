@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# Template file for 'sonic-pi' 
-=======
 # Template file for 'sonic-pi'
->>>>>>> New package: sonic-pi-3.1.0
 pkgname=sonic-pi
 version=3.1.0
 revision=1
