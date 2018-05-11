@@ -1,1 +1,2 @@
 PAKETE=( hashboot autorunner passff ovmf networkmanager-dmenu buku_run radicale ruby-osc-ruby kernel )
+PAKETE=( hashboot autorunner passff ovmf networkmanager-dmenu buku_run radicale ruby-osc-ruby )
