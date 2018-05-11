@@ -23,7 +23,8 @@ checksum=08de9d4ed3c81bbe69061d50c79c6bed48a8d3212e11fec6c3ef2197423f466b
 
 pre_configure() {
 	sed -i 's/lqt5scintilla2/lqscintilla2_qt5/g' "SonicPi.pro"
-	rm -fr app/server/native
+	#rm -fr app/server/native
+
 
 	../../server/ruby/bin/compile-extensions.rb
 	../../server/ruby/bin/i18n-tool.rb -t
