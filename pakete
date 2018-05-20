@@ -1,2 +1,3 @@
 PAKETE=( hashboot autorunner passff ovmf networkmanager-dmenu buku_run radicale ruby-osc-ruby kernel )
-
+#git fetch -t git://github.com/voidlinux/void-packages.git master
+#git reset --hard FETCH_HEAD
