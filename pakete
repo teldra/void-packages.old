@@ -1,4 +1,5 @@
 PAKETE=( hashboot autorunner passff ovmf networkmanager-dmenu buku_run radicale ruby-osc-ruby fizsh liquidprompt portage OctoPrint zsh-autosuggestions zswap )
 PAKETE_AARCH64=( radicale zsh-autosuggestions zswap OctoPrint )
+KERNEL=0
 #git fetch -t git://github.com/voidlinux/void-packages.git master
 #git reset --hard FETCH_HEAD
