@@ -3,14 +3,23 @@ pkgname=OctoPrint
 version=1.3.8
 revision=1
 build_style=python-module
-hostmakedepends="python-setuptools"
-depends="python-blinker python-click python-dateutil python-feedparser python-future python-futures python-monotonic python-netaddr \
-python-netifaces python-psutil python-pyserial python-requests python-rsa python-websocket-client python-scandir python-tornado python-watchdog \
-python-wrapt python-yaml python-Flask python-Flask-Assets python-Flask-Babel python-Flask-Login python-Markdown \
-python-awesome-slugify python-chainmap python-Flask-principal python-pkginfo python-pylru python-sarge python-semanticversion python-sockjs-tornado"
+hostmakedepends="python-setuptools python-devel"
+makedepends="python-pip python-devel python-frozendict python-monotonic python-futures python-wrapt python-dateutil python-websocket-client python-scandir python-future python-chainmap python-feedparser python-awesome-slugify python-click python-psutil python-requests python-pkginfo python-rsa python-pylru python-netifaces python-sarge python-watchdog python-netaddr python-pyserial python-Markdown python-Flask-Assets python-Flask-Babel python-Flask-principal python-Flask-Login python-sockjs-tornado python-tornado python-Werkzeug python-Jinja2 python-Flask python-yaml python-semanticversion"
+depends="python-frozendict python-monotonic python-futures python-wrapt python-dateutil python-websocket-client python-scandir python-future python-chainmap python-feedparser python-awesome-slugify python-click python-psutil python-requests python-pkginfo python-rsa python-pylru python-netifaces python-sarge python-watchdog python-netaddr python-pyserial python-Markdown python-Flask-Assets python-Flask-Babel python-Flask-principal python-Flask-Login python-sockjs-tornado python-tornado python-Werkzeug python-Jinja2 python-Flask python-yaml python-semanticversion"
 short_desc="Responsive web interface for controlling a 3D printer (RepRap, Ultimaker, ...)"
 maintainer="teldra <teldra@rotce.de>"
 license="AGPL-3"
 homepage="http://octoprint.org"
 distfiles="https://github.com/foosel/${pkgname}/archive/${version}.tar.gz"
 checksum=ca1bc5352ef20778722a6b2aedef4c8dbe28d0d82c2526f84f3db07245a01aad
+conf_files="/etc/conf.d/octoprint.conf"
+
+pre_build() {
+	sed -i "s|monotonic>=1.3,<1.4|monotonic>=1.3,<1.6|g" setup.py
+}
+
+pre_install() {
+	vmkdir etc/conf.d
+	vcopy ${FILESDIR}/octoprint.conf etc/conf.d/octoprint.conf
+}
+
