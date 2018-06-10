@@ -1,0 +1,22 @@
+# Template file for 'python-frozendict'
+pkgname=python-frozendict
+version=1.2
+revision=1
+wrksrc=frozendict-${version}
+#create_wrksrc=yes
+#only_for_archs="i686 x86_64"
+build_style=python2-module
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends="python-setuptools"
+makedepends=""
+depends=""
+short_desc="Immutable wrapper around dictionaries that implements the complete mapping interface"
+maintainer="teldra <teldra@rotce.de>"
+license="GPL-3"
+homepage="https://github.com/slezica/python-frozendict"
+distfiles="https://pypi.org/packages/source/f/frozendict/frozendict-${version}.tar.gz"
+checksum=774179f22db2ef8a106e9c38d4d1f8503864603db08de2e33be5b778230f6e45
